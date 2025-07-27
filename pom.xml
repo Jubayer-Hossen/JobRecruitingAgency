@@ -58,7 +58,7 @@
             <!-- Default configuration for running with: mvn clean javafx:run -->
             <id>default-cli</id>
             <configuration>
-              <mainClass>jubayer.hossen.jobrecruitingagency/jubayer.hossen.jobrecruitingagency.HelloApplication</mainClass>
+              <mainClass>jubayer.hossen.jobrecruitingagency/jubayer.hossen.jobrecruitingagency.MainApplication</mainClass>
               <launcher>app</launcher>
               <jlinkZipName>app</jlinkZipName>
               <jlinkImageName>app</jlinkImageName>
