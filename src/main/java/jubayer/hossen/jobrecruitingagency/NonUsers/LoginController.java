@@ -1,4 +1,4 @@
-package jubayer.hossen.jobrecruitingagency;
+package jubayer.hossen.jobrecruitingagency.NonUsers;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.CheckBox;
