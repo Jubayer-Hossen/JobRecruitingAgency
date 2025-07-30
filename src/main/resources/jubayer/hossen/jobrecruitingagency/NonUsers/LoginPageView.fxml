@@ -41,6 +41,6 @@
       <CheckBox fx:id="rememberMECheckBox" layoutX="467.0" layoutY="373.0" mnemonicParsing="false" text="  Remember me" />
       <Button layoutX="653.0" layoutY="390.0" mnemonicParsing="false" onAction="#logInButtonOnAction" prefHeight="35.0" prefWidth="63.0" text="Log In" />
       <Label layoutX="520.0" layoutY="33.0" text="Don't have an account?" />
-      <Button layoutX="655.0" layoutY="29.0" mnemonicParsing="false" onAction="#createAccountButtonOnAction" prefHeight="17.0" prefWidth="124.0" text="CREATE ACCOUNT" />
+      <Button fx:id="createAccountButton" layoutX="655.0" layoutY="29.0" mnemonicParsing="false" onAction="#createAccountButtonOnAction" prefHeight="17.0" prefWidth="124.0" text="CREATE ACCOUNT" />
    </children>
 </AnchorPane>
