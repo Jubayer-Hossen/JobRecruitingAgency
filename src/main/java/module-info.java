@@ -13,6 +13,7 @@ module jubayer.hossen.jobrecruitingagency {
     opens jubayer.hossen.jobrecruitingagency.JobSeeker to javafx.fxml;
     opens jubayer.hossen.jobrecruitingagency.NonUsers to javafx.fxml;
     opens jubayer.hossen.jobrecruitingagency.OfferApprovalOfficer to javafx.fxml;
+    opens jubayer.hossen.jobrecruitingagency.User to javafx.fxml;
 
     exports jubayer.hossen.jobrecruitingagency;
     exports jubayer.hossen.jobrecruitingagency.AppAdmin;
@@ -24,4 +25,5 @@ module jubayer.hossen.jobrecruitingagency {
     exports jubayer.hossen.jobrecruitingagency.JobSeeker;
     exports jubayer.hossen.jobrecruitingagency.NonUsers;
     exports jubayer.hossen.jobrecruitingagency.OfferApprovalOfficer;
+    exports jubayer.hossen.jobrecruitingagency.User;
 }
