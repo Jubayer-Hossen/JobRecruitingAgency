@@ -1,8 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jubayer.hossen.jobrecruitingagency.AppAdmin.UserManagementController">
-
+   <children>
+      <Label layoutX="276.0" layoutY="37.0" text="User  Management panel">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <TableView layoutX="42.0" layoutY="166.0" prefHeight="200.0" prefWidth="701.0">
+        <columns>
+          <TableColumn fx:id="employerNameTC" prefWidth="294.4000244140625" text="Employer Name" />
+          <TableColumn fx:id="statusTC" minWidth="0.0" prefWidth="219.2000732421875" text="Status" />
+            <TableColumn fx:id="limitTC" prefWidth="187.199951171875" text="Limit" />
+        </columns>
+      </TableView>
+      <Button layoutX="54.0" layoutY="401.0" mnemonicParsing="false" onAction="#verifyUserOA" prefHeight="66.0" prefWidth="200.0" text="Verify">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button layoutX="298.0" layoutY="404.0" mnemonicParsing="false" onAction="#suspendUserOA" prefHeight="60.0" prefWidth="200.0" text="Suspend">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button layoutX="532.0" layoutY="404.0" mnemonicParsing="false" onAction="#setPostingLimitOA" prefHeight="60.0" prefWidth="200.0" text="Set Posting Limit">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+   </children>
 </AnchorPane>
