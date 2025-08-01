@@ -50,7 +50,7 @@
             </HBox>
             <HBox layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="150.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#uploadResumeButtonOnAction" prefHeight="25.0" prefWidth="170.0" text="Upload Resume">
+                  <Button fx:id="uploadResumeFileChooserButton" mnemonicParsing="false" onAction="#uploadResumeButtonOnAction" prefHeight="25.0" prefWidth="170.0" text="Upload Resume">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -62,7 +62,7 @@
             </HBox>
             <HBox layoutX="10.0" layoutY="55.0" prefHeight="25.0" prefWidth="150.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#checkApplicationStatusButtonOnAction" prefHeight="25.0" prefWidth="170.0" text="Check Application Status">
+                  <Button mnemonicParsing="false" onAction="#checkApplicationStatusButtonOnAction" prefHeight="25.0" prefWidth="170.0" text="My Applications">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
