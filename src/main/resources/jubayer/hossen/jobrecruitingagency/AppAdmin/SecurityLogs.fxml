@@ -1,8 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jubayer.hossen.jobrecruitingagency.AppAdmin.SecurityLogsController">
-
+   <children>
+      <Label layoutX="294.0" layoutY="43.0" text="Security and Audit" underline="true">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="346.0" layoutY="114.0" text="Login History">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TableView fx:id="loginHistoryTableView" layoutX="36.0" layoutY="140.0" prefHeight="176.0" prefWidth="726.0">
+        <columns>
+          <TableColumn fx:id="userTC" prefWidth="200.0" text="User" />
+          <TableColumn fx:id="timestampTC" prefWidth="193.5999755859375" text="Timestamp" />
+            <TableColumn fx:id="ipTC" prefWidth="178.4000244140625" text="IP Address" />
+            <TableColumn fx:id="statusTC" prefWidth="153.60003662109375" text="Status" />
+        </columns>
+      </TableView>
+      <Button layoutX="706.0" layoutY="330.0" mnemonicParsing="false" onAction="#viewLoginHistoryOA" text="Refresh" />
+      <Label layoutX="36.0" layoutY="330.0" text="Two-Factor Authentication">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="twoFAStatusLabel" layoutX="191.0" layoutY="369.0" prefHeight="26.0" prefWidth="163.0" text="Status: Disabled" />
+      <Button layoutX="64.0" layoutY="369.0" mnemonicParsing="false" onAction="#enable2FAOA" prefHeight="26.0" prefWidth="94.0" text="Enable 2FA" />
+      <Label layoutX="48.0" layoutY="434.0" text="Flagged Accounts">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <ListView fx:id="flaggedAccountsList" layoutX="191.0" layoutY="434.0" prefHeight="140.0" prefWidth="440.0" />
+      <Button layoutX="646.0" layoutY="491.0" mnemonicParsing="false" onAction="#monitorAccountsOA" text="Investigate" />
+   </children>
 </AnchorPane>

@@ -1,8 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jubayer.hossen.jobrecruitingagency.AppAdmin.AppAdminDashBoardController">
-
+   <children>
+      <Label layoutX="365.0" layoutY="28.0" text="App Admin Dashboard" />
+      <Label layoutX="52.0" layoutY="80.0" text="Active Employers:" />
+      <Label fx:id="activeEmployersLabel" layoutX="173.0" layoutY="80.0" text="124" />
+      <Label layoutX="52.0" layoutY="109.0" text="Active Job Posts:" />
+      <Label layoutX="52.0" layoutY="136.0" text="New Candidates:" />
+      <Label layoutX="52.0" layoutY="171.0" text="Pending Verifications:" />
+      <Label fx:id="activeJobsLabel" layoutX="174.0" layoutY="109.0" text="367" />
+      <Label fx:id="newCandidatesLabel" layoutX="180.0" layoutY="136.0" text="58" />
+      <Label fx:id="pendingVerificationsLabel" layoutX="179.0" layoutY="171.0" text="12" />
+      <Label layoutX="417.0" layoutY="85.0" text="Security Alerts &amp; Flags">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <ListView fx:id="alertListView" layoutX="265.0" layoutY="118.0" prefHeight="72.0" prefWidth="462.0" />
+      <Button layoutX="606.0" layoutY="198.0" mnemonicParsing="false" onAction="#investigateAlertOA" text="Investigate Selected" />
+      <Label layoutX="30.0" layoutY="216.0" text="Recent Admin Activity">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TableView fx:id="activityTableView" layoutX="42.0" layoutY="255.0" prefHeight="122.0" prefWidth="631.0">
+        <columns>
+          <TableColumn prefWidth="155.20004272460938" text="Admin" />
+          <TableColumn prefWidth="142.39999389648438" text="Action" />
+            <TableColumn prefWidth="120.79998779296875" text="Target" />
+            <TableColumn prefWidth="130.39996337890625" text="Timestamp" />
+        </columns>
+      </TableView>
+      <Button layoutX="691.0" layoutY="272.0" mnemonicParsing="false" onAction="#refreshActivityOA" text="Refresh Log" />
+      <Label layoutX="27.0" layoutY="387.0" text="Employer Account Overview">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TableView fx:id="employerSnapshotTableView" layoutX="42.0" layoutY="420.0" prefHeight="122.0" prefWidth="631.0">
+        <columns>
+          <TableColumn prefWidth="125.0" text="Company" />
+          <TableColumn prefWidth="125.0" text="Verified" />
+            <TableColumn prefWidth="125.0" text="Status" />
+            <TableColumn prefWidth="125.0" text="Job Limit" />
+            <TableColumn prefWidth="125.0" text="Actions" />
+        </columns>
+      </TableView>
+      <Button layoutX="47.0" layoutY="552.0" mnemonicParsing="false" text="Verify Selected" />
+      <Button layoutX="199.0" layoutY="552.0" mnemonicParsing="false" onAction="#suspendEmployerOA" text="Suspend Selected" />
+      <Button layoutX="523.0" layoutY="552.0" mnemonicParsing="false" onAction="#exportReportOA" text="Export Report" />
+      <Button layoutX="344.0" layoutY="552.0" mnemonicParsing="false" onAction="#adjustLimitOA" text="Adjust Job Limit" />
+   </children>
 </AnchorPane>
