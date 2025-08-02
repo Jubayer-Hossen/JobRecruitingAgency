@@ -8,7 +8,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jubayer.hossen.jobrecruitingagency.JobSeeker.JobSeekerProfileController">
    <children>
       <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="52.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
@@ -21,11 +20,12 @@
       <Label layoutX="118.0" layoutY="322.0" text="Phone Number:" />
       <Label layoutX="169.0" layoutY="377.0" text="Skills:" />
       <Label layoutX="149.0" layoutY="443.0" text="Summary:" />
-      <TextField layoutX="234.0" layoutY="238.0" />
-      <TextField layoutX="234.0" layoutY="278.0" />
-      <TextField layoutX="234.0" layoutY="318.0" />
-      <TextArea layoutX="234.0" layoutY="358.0" prefHeight="55.0" prefWidth="200.0" />
-      <TextArea layoutX="234.0" layoutY="433.0" prefHeight="119.0" prefWidth="200.0" />
-      <Button layoutX="488.0" layoutY="552.0" mnemonicParsing="false" text="Update Profile" />
+      <TextField fx:id="NameTextField" layoutX="234.0" layoutY="238.0" />
+      <TextField fx:id="emailTextField" layoutX="234.0" layoutY="278.0" />
+      <TextField fx:id="phoneNumberTextField" layoutX="234.0" layoutY="318.0" />
+      <TextArea fx:id="skillsTextArea" layoutX="234.0" layoutY="358.0" prefHeight="55.0" prefWidth="200.0" />
+      <TextArea fx:id="summaryTextArea" layoutX="234.0" layoutY="433.0" prefHeight="119.0" prefWidth="200.0" />
+      <Button layoutX="488.0" layoutY="552.0" mnemonicParsing="false" onAction="#updateProfileButtonOnAction" text="Update Profile" />
+      <Button layoutX="40.0" layoutY="30.0" mnemonicParsing="false" onAction="#backHomeButtonOnAction" text="←Home" />
    </children>
 </AnchorPane>
