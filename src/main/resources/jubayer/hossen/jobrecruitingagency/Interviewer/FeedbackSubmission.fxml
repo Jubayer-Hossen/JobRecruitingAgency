@@ -1,14 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="jubayer.hossen.jobrecruitingagency.Interviewer.FeedbackSubmission"
-            prefHeight="400.0" prefWidth="600.0">
+<VBox xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jubayer.hossen.jobrecruitingagency.Interviewer.FeedbackSubmission" spacing="10" style="-fx-padding: 20;">
+    <Label text="Submit Interview Feedback" style="-fx-font-size: 18; -fx-font-weight: bold;"/>
 
-</AnchorPane>
+    <HBox spacing="10">
+        <Label text="Candidate:" style="-fx-min-width: 120;"/>
+        <Label fx:id="candidateNameLabel" style="-fx-font-weight: bold;"/>
+    </HBox>
+
+    <HBox spacing="10">
+        <Label text="Interview Date:" style="-fx-min-width: 120;"/>
+        <Label fx:id="interviewDateLabel"/>
+    </HBox>
+
+    <Label text="Technical Skills:" style="-fx-font-weight: bold; -fx-padding: 5 0 0 0;"/>
+    <Slider fx:id="technicalSkillsSlider" min="0" max="10" showTickMarks="true" showTickLabels="true" blockIncrement="1" majorTickUnit="1"/>
+
+    <Label text="Communication:" style="-fx-font-weight: bold; -fx-padding: 5 0 0 0;"/>
+    <Slider fx:id="communicationSlider" min="0" max="10" showTickMarks="true" showTickLabels="true" blockIncrement="1" majorTickUnit="1"/>
+
+    <Label text="Cultural Fit:" style="-fx-font-weight: bold; -fx-padding: 5 0 0 0;"/>
+    <Slider fx:id="culturalFitSlider" min="0" max="10" showTickMarks="true" showTickLabels="true" blockIncrement="1" majorTickUnit="1"/>
+
+    <Label text="Overall Recommendation:" style="-fx-font-weight: bold; -fx-padding: 5 0 0 0;"/>
+    <ComboBox fx:id="recommendationComboBox" style="-fx-min-width: 200;"/>
+
+    <Label text="Additional Comments:" style="-fx-font-weight: bold; -fx-padding: 5 0 0 0;"/>
+    <TextArea fx:id="commentsTextArea" style="-fx-min-height: 100;"/>
+
+    <Button text="Submit Feedback" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-min-width: 200;"
+            onAction="#handleSubmitFeedback"/>
+
+    <Label fx:id="statusLabel" style="-fx-text-fill: #ff0000;"/>
+</VBox>

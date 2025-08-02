@@ -1,13 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            prefHeight="400.0" prefWidth="600.0">
+<VBox xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jubayer.hossen.jobrecruitingagency.Interviewer.InterviewScheduleController" spacing="10" style="-fx-padding: 20;">
+    <Label text="Schedule New Interview" style="-fx-font-size: 18; -fx-font-weight: bold;"/>
 
-</AnchorPane>
+    <HBox spacing="10">
+        <Label text="Select Candidate:" style="-fx-min-width: 120;"/>
+        <ComboBox fx:id="candidateComboBox" style="-fx-min-width: 200;"/>
+    </HBox>
+
+    <HBox spacing="10">
+        <Label text="Interview Date:" style="-fx-min-width: 120;"/>
+        <DatePicker fx:id="interviewDatePicker" style="-fx-min-width: 200;"/>
+    </HBox>
+
+    <HBox spacing="10">
+        <Label text="Interview Time:" style="-fx-min-width: 120;"/>
+        <ComboBox fx:id="timeSlotComboBox" style="-fx-min-width: 200;"/>
+    </HBox>
+
+    <HBox spacing="10">
+        <Label text="Interview Type:" style="-fx-min-width: 120;"/>
+        <ComboBox fx:id="interviewTypeComboBox" style="-fx-min-width: 200;"/>
+    </HBox>
+
+    <Button text="Schedule Interview" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-min-width: 200;"
+            onAction="#handleScheduleInterview"/>
+
+    <Label fx:id="statusLabel" style="-fx-text-fill: #ff0000;"/>
+</VBox>

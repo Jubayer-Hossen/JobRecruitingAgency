@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<VBox xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jubayer.hossen.jobrecruitingagency.Interviewer.InterviewCalendar" spacing="10" style="-fx-padding: 20;">
+    <Label text="Interview Calendar" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <!-- Filter Controls -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Filter:" style="-fx-min-width: 60px;"/>
+        <ComboBox fx:id="filterComboBox" style="-fx-min-width: 150px;"/>
+        <Label text="Date Range:" style="-fx-min-width: 80px;"/>
+        <DatePicker fx:id="dateRangePicker" style="-fx-min-width: 120px;"/>
+        <Button text="Apply Filter" onAction="#handleApplyFilter"/>
+    </HBox>
+
+    <!-- Interview Table -->
+    <TableView fx:id="interviewTableView" style="-fx-max-height: 300px;">
+        <columns>
+            <TableColumn text="Candidate" prefWidth="150">
+                <cellValueFactory><PropertyValueFactory property="candidateName"/></cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Interviewer" prefWidth="150">
+                <cellValueFactory><PropertyValueFactory property="interviewerName"/></cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Job Title" prefWidth="150">
+                <cellValueFactory><PropertyValueFactory property="jobTitle"/></cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Date/Time" prefWidth="180">
+                <cellValueFactory><PropertyValueFactory property="interviewTime"/></cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Type" prefWidth="100">
+                <cellValueFactory><PropertyValueFactory property="interviewType"/></cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Status" prefWidth="100">
+                <cellValueFactory><PropertyValueFactory property="status"/></cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+
+    <!-- Action Buttons -->
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button fx:id="cancelInterviewButton" text="Cancel Interview"
+                style="-fx-background-color: #f44336; -fx-text-fill: white;"
+                onAction="#handleCancelInterview" disable="true"/>
+        <Button fx:id="rescheduleInterviewButton" text="Reschedule Interview"
+                style="-fx-background-color: #2196F3; -fx-text-fill: white;"
+                onAction="#handleRescheduleInterview" disable="true"/>
+    </HBox>
+
+    <!-- Statistics Chart -->
+    <Label text="Interview Statistics" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-padding: 10 0 0 0;"/>
+    <PieChart fx:id="interviewStatsChart" style="-fx-pref-height: 200px;"/>
+</VBox>
