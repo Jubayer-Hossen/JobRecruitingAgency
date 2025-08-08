@@ -3,8 +3,7 @@
 <?import javafx.scene.layout.*?>
 
 
-<?import javafx.collections.FXCollections?>
-<?import com.sun.org.apache.xpath.internal.operations.String?>
+
 <BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jubayer.hossen.jobrecruitingagency.HRManager.ApplicationReviewController">
     <top>
         <ToolBar>
@@ -15,7 +14,7 @@
 
     <center>
         <SplitPane dividerPositions="0.3">
-            <!-- Application List -->
+
             <VBox>
                 <TableView fx:id="applicationsTable">
                     <columns>
@@ -31,24 +30,20 @@
                 </HBox>
             </VBox>
 
-            <!-- Application Details -->
+
             <VBox spacing="10" style="-fx-padding: 10;">
                 <Label fx:id="candidateName" style="-fx-font-weight: bold;"/>
                 <Label fx:id="candidateEmail"/>
                 <Separator/>
 
                 <Label text="Resume:"/>
-<!--                <WebView fx:id="resumeView" prefHeight="300"/>-->
+
 
                 <HBox spacing="10" alignment="CENTER_LEFT">
                     <Label text="Status:"/>
                     <ComboBox fx:id="statusCombo">
                         <items>
-<!--                            <FXCollections fx:factory="observableArrayList">-->
-<!--                                <String>Under Review</String>-->
-<!--                                <String>Shortlisted</String>-->
-<!--                                <String>Rejected</String>-->
-<!--                            </FXCollections>-->
+
                         </items>
                     </ComboBox>
                     <Button text="Update Status" fx:id="updateStatusBtn"/>

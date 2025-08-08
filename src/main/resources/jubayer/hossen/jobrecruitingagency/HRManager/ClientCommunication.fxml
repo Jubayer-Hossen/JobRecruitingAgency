@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
 <?import javafx.collections.FXCollections?>
-<?import com.sun.org.apache.xpath.internal.operations.String?>
+
 <BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jubayer.hossen.jobrecruitingagency.HRManager.ClientCommunicationController">
     <top>
         <ToolBar>
@@ -31,11 +30,11 @@
                     <Label text="Template:"/>
                     <ComboBox fx:id="templateCombo" prefWidth="250">
                         <items>
-                            <FXCollections fx:factory="observableArrayList">
-                                <String>Progress Report</String>
-                                <String>Candidate Profile</String>
-                                <String>Interview Results</String>
-                            </FXCollections>
+<!--                            <FXCollections fx:factory="observableArrayList">-->
+<!--                                <string>Progress Report</string>-->
+<!--                                <String>Candidate Profile</String>-->
+<!--                                <String>Interview Results</String>-->
+<!--                            </FXCollections>-->
                         </items>
                     </ComboBox>
                     <Button text="Load Template" fx:id="loadTemplateBtn"/>
@@ -61,6 +60,6 @@
     </center>
 
     <bottom>
-            <Label fx:id="statusLabel" text="Select a client company"/>
+        <Label fx:id="statusLabel" text="Select a client company"/>
     </bottom>
 </BorderPane>
