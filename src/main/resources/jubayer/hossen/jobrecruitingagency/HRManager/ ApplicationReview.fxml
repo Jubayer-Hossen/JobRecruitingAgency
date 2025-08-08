@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<?import javafx.collections.FXCollections?>
+<?import com.sun.org.apache.xpath.internal.operations.String?>
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jubayer.hossen.jobrecruitingagency.HRManager.ApplicationReviewController">
+    <top>
+        <ToolBar>
+            <Button text="Back to Dashboard" />
+            <Label text="Application Review" style="-fx-font-size: 16pt; -fx-font-weight: bold;"/>
+        </ToolBar>
+    </top>
+
+    <center>
+        <SplitPane dividerPositions="0.3">
+            <!-- Application List -->
+            <VBox>
+                <TableView fx:id="applicationsTable">
+                    <columns>
+                        <TableColumn text="Candidate" />
+                        <TableColumn text="Job Title" />
+                        <TableColumn text="Date" />
+                        <TableColumn text="Status" />
+                    </columns>
+                </TableView>
+                <HBox spacing="10" style="-fx-padding: 10;">
+                    <ComboBox fx:id="filterCombo" promptText="Filter by Status"/>
+                    <Button text="View Details" fx:id="viewDetailsBtn"/>
+                </HBox>
+            </VBox>
+
+            <!-- Application Details -->
+            <VBox spacing="10" style="-fx-padding: 10;">
+                <Label fx:id="candidateName" style="-fx-font-weight: bold;"/>
+                <Label fx:id="candidateEmail"/>
+                <Separator/>
+
+                <Label text="Resume:"/>
+<!--                <WebView fx:id="resumeView" prefHeight="300"/>-->
+
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Status:"/>
+                    <ComboBox fx:id="statusCombo">
+                        <items>
+<!--                            <FXCollections fx:factory="observableArrayList">-->
+<!--                                <String>Under Review</String>-->
+<!--                                <String>Shortlisted</String>-->
+<!--                                <String>Rejected</String>-->
+<!--                            </FXCollections>-->
+                        </items>
+                    </ComboBox>
+                    <Button text="Update Status" fx:id="updateStatusBtn"/>
+                </HBox>
+            </VBox>
+        </SplitPane>
+    </center>
+
+    <bottom>
+            <Label fx:id="statusLabel" text="Ready"/>
+    </bottom>
+</BorderPane>

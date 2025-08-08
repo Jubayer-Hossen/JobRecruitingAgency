@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jubayer.hossen.jobrecruitingagency.HRManager.InterviewSchedulerController">
+    <top>
+        <ToolBar>
+            <Button text="Back" />
+            <Label text="Interview Scheduler" style="-fx-font-size: 16pt; -fx-font-weight: bold;"/>
+        </ToolBar>
+    </top>
+
+    <center>
+        <GridPane hgap="10" vgap="10" style="-fx-padding: 20;">
+            <Label text="Shortlisted Candidates:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <ListView fx:id="candidatesList" GridPane.rowIndex="1" GridPane.columnIndex="0" prefWidth="300" prefHeight="200"/>
+
+            <Label text="Available Interviewers:" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+            <ListView fx:id="interviewersList" GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="300" prefHeight="200"/>
+
+            <Label text="Select Date:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <DatePicker fx:id="datePicker" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+            <Label text="Select Time:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <ComboBox fx:id="timeCombo" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+            <Button text="Schedule Interview" fx:id="scheduleBtn" GridPane.rowIndex="4" GridPane.columnIndex="1"
+                    GridPane.halignment="RIGHT" style="-fx-font-weight: bold;"/>
+        </GridPane>
+    </center>
+
+    <bottom>
+        <StatusBar>
+            <Label fx:id="statusLabel" text="Select candidate and interviewer"/>
+        </StatusBar>
+    </bottom>
+</BorderPane>

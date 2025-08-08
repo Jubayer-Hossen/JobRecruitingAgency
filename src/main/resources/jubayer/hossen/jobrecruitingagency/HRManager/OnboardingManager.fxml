@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jubayer.hossen.jobrecruitingagency.HRManager.OnboardingController">
+    <top>
+        <ToolBar>
+            <Button text="Back" />
+            <Label text="Onboarding Manager" style="-fx-font-size: 16pt; -fx-font-weight: bold;"/>
+        </ToolBar>
+    </top>
+
+    <center>
+        <SplitPane dividerPositions="0.3">
+            <!-- New Hires List -->
+            <VBox>
+                <Label text="New Hires" style="-fx-font-weight: bold; -fx-padding: 10;"/>
+                <ListView fx:id="newHiresList" />
+            </VBox>
+
+            <!-- Onboarding Tasks -->
+            <VBox spacing="10" style="-fx-padding: 15;">
+                <Label fx:id="candidateName" style="-fx-font-size: 14pt;"/>
+
+                <Label text="Onboarding Checklist:" style="-fx-font-weight: bold;"/>
+                <CheckBox text="Documentation Completed" fx:id="docsCheck"/>
+                <CheckBox text="Orientation Scheduled" fx:id="orientationCheck"/>
+                <CheckBox text="Equipment Delivered" fx:id="equipmentCheck"/>
+
+                <ProgressBar fx:id="progressBar" prefWidth="300"/>
+
+                <HBox spacing="10" style="-fx-padding: 10 0 0 0;">
+                    <Button text="Send Welcome Package" fx:id="welcomeBtn"/>
+                    <DatePicker fx:id="followUpDate" promptText="Set Follow-up Date"/>
+                    <Button text="Set Reminder" fx:id="reminderBtn"/>
+                </HBox>
+            </VBox>
+        </SplitPane>
+    </center>
+
+    <bottom>
+        <StatusBar>
+            <Label fx:id="statusLabel" text="Select a new hire"/>
+        </StatusBar>
+    </bottom>
+</BorderPane>
