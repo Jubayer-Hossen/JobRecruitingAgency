@@ -1,4 +1,4 @@
-package jubayer.hossen.jobrecruitingagency.JobSeeker;
+package jubayer.hossen.jobrecruitingagency.JobSeeker.ControllerClasses;
 
 public class AppliedJobsController
 {

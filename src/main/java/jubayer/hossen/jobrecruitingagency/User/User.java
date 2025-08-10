@@ -12,6 +12,7 @@ public abstract class User {
         this.name = name;
         this.email = email;
     }
+
     public User login(String email, String password){
         if(this.email.equals(email) && this.password.equals(password)){
             return this;

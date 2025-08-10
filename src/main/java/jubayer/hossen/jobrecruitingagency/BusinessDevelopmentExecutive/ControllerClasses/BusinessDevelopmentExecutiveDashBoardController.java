@@ -1,4 +1,4 @@
-package jubayer.hossen.jobrecruitingagency.BusinessDevelopmentExecutive;
+package jubayer.hossen.jobrecruitingagency.BusinessDevelopmentExecutive.ControllerClasses;
 
 public class BusinessDevelopmentExecutiveDashBoardController
 {

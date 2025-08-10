@@ -1,4 +1,5 @@
-package jubayer.hossen.jobrecruitingagency.JobSeeker;
+package jubayer.hossen.jobrecruitingagency.JobSeeker.ControllerClasses;
+
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;

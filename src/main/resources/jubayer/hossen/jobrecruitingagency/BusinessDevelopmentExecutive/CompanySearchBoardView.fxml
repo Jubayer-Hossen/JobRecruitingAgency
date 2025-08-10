@@ -3,6 +3,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jubayer.hossen.jobrecruitingagency.BusinessDevelopmentExecutive.CompanySearchBoardController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jubayer.hossen.jobrecruitingagency.BusinessDevelopmentExecutive.ControllerClasses.CompanySearchBoardController">
 
 </AnchorPane>

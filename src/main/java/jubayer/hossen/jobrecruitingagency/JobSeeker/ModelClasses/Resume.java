@@ -1,4 +1,4 @@
-package jubayer.hossen.jobrecruitingagency.JobSeeker;
+package jubayer.hossen.jobrecruitingagency.JobSeeker.ModelClasses;
 
 import java.time.LocalDate;
 
@@ -12,7 +12,6 @@ public class Resume {
         this.filePath = filePath;
         this.uploadedAt = uploadedAt;
     }
-
 
     public String getFilePath() {
         return filePath;

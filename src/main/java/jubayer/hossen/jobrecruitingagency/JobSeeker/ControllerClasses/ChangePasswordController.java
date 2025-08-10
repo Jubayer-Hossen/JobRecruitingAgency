@@ -1,4 +1,4 @@
-package jubayer.hossen.jobrecruitingagency.BusinessDevelopmentExecutive;
+package jubayer.hossen.jobrecruitingagency.JobSeeker.ControllerClasses;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.PasswordField;

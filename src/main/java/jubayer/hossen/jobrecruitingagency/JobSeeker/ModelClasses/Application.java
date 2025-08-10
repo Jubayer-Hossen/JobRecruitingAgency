@@ -1,6 +1,6 @@
-package jubayer.hossen.jobrecruitingagency.JobSeeker;
+package jubayer.hossen.jobrecruitingagency.JobSeeker.ModelClasses;
 
-import jubayer.hossen.jobrecruitingagency.BusinessDevelopmentExecutive.Company;
+import jubayer.hossen.jobrecruitingagency.BusinessDevelopmentExecutive.ModelClasses.Company;
 
 public class Application {
     private String applicationID;
