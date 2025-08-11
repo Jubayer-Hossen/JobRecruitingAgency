@@ -1,5 +1,7 @@
 package jubayer.hossen.jobrecruitingagency.HRManager;
 
+import javafx.scene.control.*;
+
 public class OfferGeneratorController
 {
     @javafx.fxml.FXML
@@ -9,7 +11,7 @@ public class OfferGeneratorController
     @javafx.fxml.FXML
     private ProgressIndicator approvalProgress;
     @javafx.fxml.FXML
-    private ComboBox candidateCombo;
+    private ComboBox<String> candidateCombo;
     @javafx.fxml.FXML
     private TextField salaryField;
     @javafx.fxml.FXML
@@ -23,4 +25,5 @@ public class OfferGeneratorController
 
     @javafx.fxml.FXML
     public void initialize() {
-    }}
+    }
+}

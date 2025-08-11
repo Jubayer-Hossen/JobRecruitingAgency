@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -32,64 +34,42 @@
             <Font size="14.0" />
          </font>
       </TextField>
-      <VBox layoutX="65.0" layoutY="100.0" prefHeight="200.0" prefWidth="150.0">
-         <children>
-            <HBox prefHeight="25.0" prefWidth="150.0">
-               <children>
-                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Assets/icons8-home-50.png" />
-                     </image>
-                  </ImageView>
-                  <Button mnemonicParsing="false" onAction="#homeButtonOnAction" prefHeight="25.0" prefWidth="127.0" text="Home" />
-               </children>
-               <VBox.margin>
-                  <Insets bottom="10.0" top="10.0" />
-               </VBox.margin>
-            </HBox>
-            <HBox layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="150.0">
-               <children>
-                  <Button fx:id="uploadResumeFileChooserButton" mnemonicParsing="false" onAction="#uploadResumeButtonOnAction" prefHeight="25.0" prefWidth="170.0" text="Upload Resume">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </Button>
-               </children>
-               <VBox.margin>
-                  <Insets bottom="10.0" top="10.0" />
-               </VBox.margin>
-            </HBox>
-            <HBox layoutX="10.0" layoutY="55.0" prefHeight="25.0" prefWidth="150.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#checkApplicationStatusButtonOnAction" prefHeight="25.0" prefWidth="170.0" text="My Applications">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </Button>
-               </children>
-               <VBox.margin>
-                  <Insets bottom="10.0" top="10.0" />
-               </VBox.margin>
-            </HBox>
-            <HBox layoutX="10.0" layoutY="81.0" prefHeight="25.0" prefWidth="150.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#offersButtonOnAction" prefHeight="25.0" prefWidth="170.0" text="Offers">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </Button>
-               </children>
-               <VBox.margin>
-                  <Insets bottom="10.0" top="10.0" />
-               </VBox.margin>
-            </HBox>
-         </children>
-      </VBox>
-      <Text layoutX="70.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TalentSphere">
+      <Text layoutX="26.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TalentSphere">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
       <Button layoutX="500.0" layoutY="28.0" mnemonicParsing="false" onAction="#searchButtonOnAction" prefHeight="30.0" prefWidth="51.0" text="Search" />
+      <BorderPane layoutY="64.0" prefHeight="555.0" prefWidth="800.0">
+         <top>
+            <MenuBar BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+         <center>
+            <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+              <tabs>
+                <Tab text="Untitled Tab 1" />
+                <Tab text="Untitled Tab 2" />
+              </tabs>
+            </TabPane>
+         </center>
+      </BorderPane>
    </children>
 </AnchorPane>

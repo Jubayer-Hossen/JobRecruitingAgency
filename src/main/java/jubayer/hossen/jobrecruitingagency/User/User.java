@@ -1,6 +1,8 @@
 package jubayer.hossen.jobrecruitingagency.User;
 
-public abstract class User {
+import java.io.Serializable;
+
+public abstract class User implements Serializable {
     private final String userID;
     private String name;
     private String email;

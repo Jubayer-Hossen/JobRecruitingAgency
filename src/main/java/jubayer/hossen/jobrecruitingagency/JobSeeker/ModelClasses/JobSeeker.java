@@ -1,10 +1,11 @@
 package jubayer.hossen.jobrecruitingagency.JobSeeker.ModelClasses;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import jubayer.hossen.jobrecruitingagency.User.User;
 
-public class JobSeeker extends User {
+public class JobSeeker extends User implements Serializable {
     private final String jobSeekerID;
     private LocalDate creationDate;
     private String phone;
@@ -22,6 +23,11 @@ public class JobSeeker extends User {
         this.resume = resume;
         this.skills = skills;
         this.summary = summary;
+    }
+
+    public JobSeeker(String jobSeekerID, String password, String name, String email) {
+        super(jobSeekerID, password, name, email);
+        this.jobSeekerID = super.getUserID();
     }
 
     @Override
