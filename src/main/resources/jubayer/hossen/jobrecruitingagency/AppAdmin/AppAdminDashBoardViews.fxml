@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jubayer.hossen.jobrecruitingagency.AppAdmin.AppAdminDashBoardController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Login &amp; Dashboard" />
+          <Menu mnemonicParsing="false" text="User Management">
+            <items>
+                  <Menu mnemonicParsing="false" text="User">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Employers" />
+                        <MenuItem mnemonicParsing="false" text="Jobseekers" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Job Post Management">
+                     <items>
+                        <MenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Create New User">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Interviewer " />
+                        <MenuItem mnemonicParsing="false" text="HR Manager" />
+                        <MenuItem mnemonicParsing="false" text="App Admin " />
+                        <MenuItem mnemonicParsing="false" text="Company Representative" />
+                        <MenuItem mnemonicParsing="false" text="Offer Approval Officer" />
+                        <MenuItem mnemonicParsing="false" text="Application Reviewer " />
+                        <MenuItem mnemonicParsing="false" text="Business Development Executive" />
+                    </items>
+                  </Menu>
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text=" Reports &amp; Analytics">
+            <items>
+                  <Menu mnemonicParsing="false" text="Application Oversight">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Action 1" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Generate reports">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Most applied jobs" />
+                        <MenuItem mnemonicParsing="false" text="Candidate conversion rates" />
+                        <MenuItem mnemonicParsing="false" text="Employer satisfaction" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Export data for internal or client use (CSV, PDF)">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Action 1" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text=" Communication Management">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Action 1" />
+                     </items>
+                  </Menu>
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Settings &amp; Configuration">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Set system-wide configurations " />
+                  <MenuItem mnemonicParsing="false" text="Manage payment gateways or plan pricing" />
+                  <MenuItem mnemonicParsing="false" text="Configure email templates" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Security &amp; Logs">
+              <items>
+                <MenuItem mnemonicParsing="false" text="View login history and admin actions" />
+                  <MenuItem mnemonicParsing="false" text="Enable two-factor authentication (2FA)" />
+                  <MenuItem mnemonicParsing="false" text="Monitor flagged accounts and IPs" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="LogOut">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Sign Out" />
+              </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView fx:id="activityTableView" layoutX="42.0" layoutY="233.0" prefHeight="122.0" prefWidth="631.0">
+               <columns>
+                  <TableColumn prefWidth="164.0" text="Admin" />
+                  <TableColumn prefWidth="153.60003662109375" text="Action" />
+                  <TableColumn prefWidth="146.39996337890625" text="Target" />
+                  <TableColumn prefWidth="167.199951171875" text="Timestamp" />
+               </columns>
+            </TableView>
+            <Label layoutX="32.0" layoutY="190.0" text="Recent Admin Activity">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="32.0" layoutY="35.0" text="Active Employers:" />
+            <Label fx:id="activeEmployersLabel" layoutX="153.0" layoutY="35.0" text="124" />
+            <Label layoutX="32.0" layoutY="64.0" text="Active Job Posts:" />
+            <Label layoutX="32.0" layoutY="91.0" text="New Candidates:" />
+            <Label layoutX="32.0" layoutY="126.0" text="Pending Verifications:" />
+            <Label fx:id="activeJobsLabel" layoutX="154.0" layoutY="64.0" text="367" />
+            <Label fx:id="newCandidatesLabel" layoutX="160.0" layoutY="91.0" text="58" />
+            <Label fx:id="pendingVerificationsLabel" layoutX="159.0" layoutY="126.0" text="12" />
+            <Label layoutX="406.0" layoutY="60.0" text="Security Alerts &amp; Flags">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <ListView fx:id="alertListView" layoutX="254.0" layoutY="93.0" prefHeight="72.0" prefWidth="462.0" />
+            <Button layoutX="615.0" layoutY="184.0" mnemonicParsing="false" onAction="#investigateAlertOA" text="Investigate Selected" />
+            <Label layoutX="27.0" layoutY="370.0" text="Employer Account Overview">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TableView fx:id="employerSnapshotTableView" layoutX="42.0" layoutY="403.0" prefHeight="122.0" prefWidth="631.0">
+               <columns>
+                  <TableColumn prefWidth="125.0" text="Company" />
+                  <TableColumn prefWidth="125.0" text="Verified" />
+                  <TableColumn prefWidth="125.0" text="Status" />
+                  <TableColumn prefWidth="125.0" text="Job Limit" />
+                  <TableColumn prefWidth="125.0" text="Actions" />
+               </columns>
+            </TableView>
+            <Button layoutX="47.0" layoutY="535.0" mnemonicParsing="false" text="Verify Selected" />
+            <Button layoutX="199.0" layoutY="535.0" mnemonicParsing="false" onAction="#suspendEmployerOA" text="Suspend Selected" />
+            <Button layoutX="523.0" layoutY="535.0" mnemonicParsing="false" onAction="#exportReportOA" text="Export Report" />
+            <Button layoutX="344.0" layoutY="535.0" mnemonicParsing="false" onAction="#adjustLimitOA" text="Adjust Job Limit" />
+            <Button layoutX="688.0" layoutY="240.0" mnemonicParsing="false" onAction="#refreshActivityOA" text="Refresh Log" />
+            <Label layoutX="331.0" layoutY="10.0" text="App Admin Dashboard">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
