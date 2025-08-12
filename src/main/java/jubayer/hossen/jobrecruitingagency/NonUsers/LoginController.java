@@ -1,15 +1,23 @@
 package jubayer.hossen.jobrecruitingagency.NonUsers;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import jubayer.hossen.jobrecruitingagency.BusinessDevelopmentExecutive.ModelClasses.BusinessDevelopmentExecutive;
 import jubayer.hossen.jobrecruitingagency.JobSeeker.ModelClasses.JobSeeker;
 import jubayer.hossen.jobrecruitingagency.MainApplication;
-
-import java.io.FileInputStream;
-import java.io.ObjectInputStream;
+import jubayer.hossen.jobrecruitingagency.User.User;
 
 public class LoginController
 {
@@ -21,6 +29,8 @@ public class LoginController
     private TextField emailAddressOrUsernameTextField;
     @javafx.fxml.FXML
     private Button createAccountButton;
+    @javafx.fxml.FXML
+    private Button loginButton;
     @javafx.fxml.FXML
     private Label messageLabel;
 
@@ -44,9 +54,6 @@ public class LoginController
 
     @javafx.fxml.FXML
     public void logInButtonOnAction(ActionEvent actionEvent) {
-        FileInputStream fileInputStream = null;
-        ObjectInputStream objectInputStream = null;
-
         String emailAddressOrUsername = emailAddressOrUsernameTextField.getText();
         String password = passwordPasswordField.getText();
 
@@ -57,36 +64,84 @@ public class LoginController
         }
 
         try {
-            fileInputStream = new FileInputStream("src\\main\\Files\\Users.bin");
-            objectInputStream = new ObjectInputStream(fileInputStream);
+            File file = new File("src\\main\\Files\\Users.bin");
 
-            Object object = objectInputStream.readObject();
+            FileInputStream fileInputStream = new FileInputStream(file);
+            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
 
-            if (object instanceof jubayer.hossen.jobrecruitingagency.JobSeeker.ModelClasses.JobSeeker) {
+            User authenticatedUser = null;
+            
+            while (true) {
                 try {
-                    FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("JobSeeker/JobSeekerDashBoardView.fxml"));
-                    Scene scene = new Scene(fxmlLoader.load());
-                    Stage newStage = (Stage) createAccountButton.getScene().getWindow();
-                    newStage.setTitle(((JobSeeker) object).getName());
-                    newStage.setScene(scene);
-                    newStage.show();
+                    Object object = objectInputStream.readObject();
+                    if (object instanceof User user) {
+                        User loginResult = user.login(emailAddressOrUsername, password);
+                        if (loginResult != null) {
+                            authenticatedUser = loginResult;
+                            break;
+                        }
+                    }
                 }
-                catch (Exception e){
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Error");
-                    alert.setHeaderText("Error while loading user data!");
-                    alert.setContentText("Please try again later!");
-                    alert.showAndWait();
-                    return;
+                catch (java.io.EOFException e) {
+                    break;
+                }
+                catch (ClassNotFoundException e){
+                    messageLabel.setText("Class not found!");
+                    messageLabel.setStyle("-fx-text-fill: red;");
                 }
             }
 
+            objectInputStream.close();
+
+            if (authenticatedUser != null) {
+                openUserDashboard(authenticatedUser);
+            }
+            else {
+                messageLabel.setText("Invalid email/username or password!");
+                messageLabel.setStyle("-fx-text-fill: red;");
+            }
+
         }
-        catch (Exception e){
+        catch (java.io.FileNotFoundException e) {
+            messageLabel.setText("No user data found! Please create an account first.");
+            messageLabel.setStyle("-fx-text-fill: red;");
         }
+        catch (java.io.IOException e) {
+            messageLabel.setText("Error occurred during login. Please try again!");
+            messageLabel.setStyle("-fx-text-fill: red;");
+        }
+    }
 
+    private void openUserDashboard(User user) {
+        try {
+            String fxmlPath;
+            String title;
 
+            if (user instanceof JobSeeker jobSeeker) {
+                fxmlPath = "JobSeeker/JobSeekerDashBoardView.fxml";
+                title = jobSeeker.getName() + "'s Dashboard";
+            }
+            else if (user instanceof BusinessDevelopmentExecutive businessDevelopmentExecutive) {
+                fxmlPath = "BusinessDevelopmentExecutive/BusinessDevelopmentExecutiveDashBoardView.fxml";
+                title = businessDevelopmentExecutive.getName() + "'s Dashboard";
+            }
+            else {
+                return;
+            }
 
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource(fxmlPath));
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage newStage = (Stage) loginButton.getScene().getWindow();
+            newStage.setTitle(title);
+            newStage.setScene(scene);
+            newStage.show();
 
+        } catch (java.io.IOException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Error while loading dashboard!");
+            alert.setContentText("Please try again later!");
+            alert.showAndWait();
+        }
     }
 }

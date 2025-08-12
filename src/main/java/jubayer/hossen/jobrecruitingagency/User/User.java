@@ -15,8 +15,8 @@ public abstract class User implements Serializable {
         this.email = email;
     }
 
-    public User login(String email, String password){
-        if(this.email.equals(email) && this.password.equals(password)){
+    public User login(String emailOrUsername, String password){
+        if((this.email.equals(emailOrUsername) || this.userID.equals(emailOrUsername)) && this.password.equals(password)){
             return this;
         }
         else {
