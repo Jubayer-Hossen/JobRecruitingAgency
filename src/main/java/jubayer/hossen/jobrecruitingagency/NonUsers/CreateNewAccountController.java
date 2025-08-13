@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import jubayer.hossen.jobrecruitingagency.AppAdmin.AppAdmin;
 import jubayer.hossen.jobrecruitingagency.HelperClasses.AppendableObjectOutputStream;
 import jubayer.hossen.jobrecruitingagency.JobSeeker.ModelClasses.JobSeeker;
 import jubayer.hossen.jobrecruitingagency.MainApplication;
@@ -33,6 +34,8 @@ public class CreateNewAccountController
     private TextField createPasswordTextField;
     @javafx.fxml.FXML
     private TextField confirmPasswordTextField;
+    @javafx.fxml.FXML
+    private Button backToLoginPageButton;
 
     @javafx.fxml.FXML
     public void initialize() {
@@ -74,13 +77,24 @@ public class CreateNewAccountController
             if (file.exists()){
                 FileOutputStream fileOutputStream = new FileOutputStream(file, true);
                 objectOutputStream = new AppendableObjectOutputStream(fileOutputStream);
-            } else {
+
+                objectOutputStream.writeObject(user);
+                objectOutputStream.close();
+            }
+            else {
                 FileOutputStream fileOutputStream = new FileOutputStream(file);
                 objectOutputStream = new ObjectOutputStream(fileOutputStream);
+                User defaultAdmin = new AppAdmin("admin", "admin", "admin", "admin@ts.com");
+
+                objectOutputStream.writeObject(defaultAdmin);
+                objectOutputStream.close();
+
+                objectOutputStream = new AppendableObjectOutputStream(fileOutputStream);
+                objectOutputStream.writeObject(user);
+                objectOutputStream.close();
+
             }
 
-            objectOutputStream.writeObject(user);
-            objectOutputStream.close();
 
             FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("NonUsers/LoginPageView.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
@@ -137,4 +151,17 @@ public class CreateNewAccountController
         return userId.toString();
     }
 
+    @javafx.fxml.FXML
+    public void backToLoginPageButtonOnAction(ActionEvent actionEvent) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("NonUsers/LoginPageView.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage newStage = (Stage) backToLoginPageButton.getScene().getWindow();
+            newStage.setTitle("TalentSphere");
+            newStage.setScene(scene);
+            newStage.show();
+        } catch (Exception e) {
+            //
+        }
+    }
 }

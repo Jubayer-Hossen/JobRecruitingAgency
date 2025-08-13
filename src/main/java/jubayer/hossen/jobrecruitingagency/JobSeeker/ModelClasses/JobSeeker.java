@@ -2,6 +2,7 @@ package jubayer.hossen.jobrecruitingagency.JobSeeker.ModelClasses;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 import jubayer.hossen.jobrecruitingagency.User.User;
 
@@ -84,5 +85,16 @@ public class JobSeeker extends User implements Serializable {
 
     public void setSummary(String summary) {
         this.summary = summary;
+    }
+
+    public ArrayList<Application> viewApplications(){
+        ArrayList<Application> applications = new ArrayList<>();
+
+        return applications;
+
+    }
+
+    public void signOut(){
+        super.logout();
     }
 }

@@ -1,5 +1,10 @@
 package jubayer.hossen.jobrecruitingagency.User;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import jubayer.hossen.jobrecruitingagency.MainApplication;
+
 import java.io.Serializable;
 
 public abstract class User implements Serializable {
@@ -25,7 +30,17 @@ public abstract class User implements Serializable {
     }
 
     public void logout(){
-        //
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("NonUsers/LoginPageView.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage stage = new Stage();
+            stage.setTitle("TalentSphere");
+            stage.setScene(scene);
+            stage.show();
+        }
+        catch (Exception e){
+            //
+        }
     }
 
     public boolean changePassword(String oldPassword, String newPassword, String confirmNewPassword){

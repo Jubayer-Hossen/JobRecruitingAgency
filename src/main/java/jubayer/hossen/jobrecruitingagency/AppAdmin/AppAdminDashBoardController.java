@@ -7,6 +7,7 @@ import javafx.scene.control.TableView;
 
 public class AppAdminDashBoardController
 {
+    private AppAdmin currentAppAdmin;
     @javafx.fxml.FXML
     private Label pendingVerificationsLabel;
     @javafx.fxml.FXML
@@ -44,5 +45,13 @@ public class AppAdminDashBoardController
 
     @javafx.fxml.FXML
     public void suspendEmployerOA(ActionEvent actionEvent) {
+    }
+
+    public void setCurrentAppAdmin(AppAdmin appAdmin) {
+        this.currentAppAdmin = appAdmin;
+    }
+
+    public AppAdmin getCurrentAppAdmin() {
+        return this.currentAppAdmin;
     }
 }

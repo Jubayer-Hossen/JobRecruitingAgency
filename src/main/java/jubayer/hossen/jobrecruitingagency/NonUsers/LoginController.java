@@ -14,7 +14,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import jubayer.hossen.jobrecruitingagency.AppAdmin.AppAdmin;
+import jubayer.hossen.jobrecruitingagency.AppAdmin.AppAdminDashBoardController;
+import jubayer.hossen.jobrecruitingagency.BusinessDevelopmentExecutive.ControllerClasses.BusinessDevelopmentExecutiveDashBoardController;
 import jubayer.hossen.jobrecruitingagency.BusinessDevelopmentExecutive.ModelClasses.BusinessDevelopmentExecutive;
+import jubayer.hossen.jobrecruitingagency.JobSeeker.ControllerClasses.JobSeekerDashBoardController;
 import jubayer.hossen.jobrecruitingagency.JobSeeker.ModelClasses.JobSeeker;
 import jubayer.hossen.jobrecruitingagency.MainApplication;
 import jubayer.hossen.jobrecruitingagency.User.User;
@@ -75,9 +79,10 @@ public class LoginController
                 try {
                     Object object = objectInputStream.readObject();
                     if (object instanceof User user) {
-                        User loginResult = user.login(emailAddressOrUsername, password);
-                        if (loginResult != null) {
-                            authenticatedUser = loginResult;
+                        User login = user.login(emailAddressOrUsername, password);
+                        if (login != null) {
+                            authenticatedUser = login;
+
                             break;
                         }
                     }
@@ -117,20 +122,50 @@ public class LoginController
             String fxmlPath;
             String title;
 
-            if (user instanceof JobSeeker jobSeeker) {
-                fxmlPath = "JobSeeker/JobSeekerDashBoardView.fxml";
-                title = jobSeeker.getName() + "'s Dashboard";
-            }
-            else if (user instanceof BusinessDevelopmentExecutive businessDevelopmentExecutive) {
-                fxmlPath = "BusinessDevelopmentExecutive/BusinessDevelopmentExecutiveDashBoardView.fxml";
-                title = businessDevelopmentExecutive.getName() + "'s Dashboard";
-            }
-            else {
-                return;
+            switch (user) {
+                case JobSeeker jobSeeker -> {
+                    fxmlPath = "JobSeeker/JobSeekerDashBoardView.fxml";
+                    title = jobSeeker.getName() + "'s Dashboard";
+                }
+                case BusinessDevelopmentExecutive businessDevelopmentExecutive -> {
+                    fxmlPath = "BusinessDevelopmentExecutive/BusinessDevelopmentExecutiveDashBoardView.fxml";
+                    title = businessDevelopmentExecutive.getName() + "'s Dashboard";
+                }
+                case AppAdmin appAdmin -> {
+                    fxmlPath = "AppAdmin/AppAdminDashBoardViews.fxml";
+                    title = appAdmin.getName() + "'s Dashboard";
+                }
+                case null, default -> {
+                    return;
+                }
             }
 
             FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource(fxmlPath));
             Scene scene = new Scene(fxmlLoader.load());
+
+            Object controller = fxmlLoader.getController();
+
+            switch (user){
+                case JobSeeker jobSeeker -> {
+                    if (controller instanceof JobSeekerDashBoardController dashboardController) {
+                        dashboardController.setCurrentJobSeeker(jobSeeker);
+                    }
+                }
+                case BusinessDevelopmentExecutive businessDevelopmentExecutive -> {
+                    if (controller instanceof BusinessDevelopmentExecutiveDashBoardController dashboardController) {
+                        dashboardController.setCurrentBusinessDevelopmentExecutive(businessDevelopmentExecutive);
+                    }
+                }
+                case AppAdmin appAdmin -> {
+                    if (controller instanceof AppAdminDashBoardController dashboardController) {
+                        dashboardController.setCurrentAppAdmin(appAdmin);
+                    }
+                }
+                case null, default -> {
+                    return;
+                }
+            }
+
             Stage newStage = (Stage) loginButton.getScene().getWindow();
             newStage.setTitle(title);
             newStage.setScene(scene);

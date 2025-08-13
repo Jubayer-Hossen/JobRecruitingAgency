@@ -36,5 +36,6 @@
       <CheckBox layoutX="506.0" layoutY="325.0" mnemonicParsing="false" onAction="#showPasswordsCheckBoxOnAction" text="Show Passwords" />
       <TextField fx:id="createPasswordTextField" layoutX="347.0" layoutY="271.0" visible="false" />
       <TextField fx:id="confirmPasswordTextField" layoutX="347.0" layoutY="321.0" visible="false" />
+      <Button fx:id="backToLoginPageButton" layoutX="40.0" layoutY="30.0" mnemonicParsing="false" onAction="#backToLoginPageButtonOnAction" text="←Back to Login Page" />
    </children>
 </AnchorPane>
