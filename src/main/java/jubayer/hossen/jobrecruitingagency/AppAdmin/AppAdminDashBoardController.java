@@ -54,4 +54,9 @@ public class AppAdminDashBoardController
     public AppAdmin getCurrentAppAdmin() {
         return this.currentAppAdmin;
     }
+
+    @javafx.fxml.FXML
+    public void CreateNewUserOA(ActionEvent actionEvent) {
+
+    }
 }
