@@ -83,7 +83,6 @@ public class LoginController
                         User login = user.login(emailAddressOrUsername, password);
                         if (login != null) {
                             authenticatedUser = login;
-
                             break;
                         }
                     }

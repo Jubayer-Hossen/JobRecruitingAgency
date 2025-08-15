@@ -53,13 +53,15 @@ public class CreateNewAccountController
 
         if (createPasswordPasswordField.isVisible()) {
             password = createPasswordPasswordField.getText();
-        } else {
+        }
+        else {
             password = createPasswordTextField.getText();
         }
 
         if (confirmPasswordPasswordField.isVisible()) {
             confirmPassword = confirmPasswordPasswordField.getText();
-        } else {
+        }
+        else {
             confirmPassword = confirmPasswordTextField.getText();
         }
 
@@ -136,7 +138,8 @@ public class CreateNewAccountController
             confirmPasswordTextField.setVisible(true);
             createPasswordPasswordField.setVisible(false);
             confirmPasswordPasswordField.setVisible(false);
-        } else {
+        }
+        else {
             createPasswordPasswordField.setText(createPasswordTextField.getText());
             confirmPasswordPasswordField.setText(confirmPasswordTextField.getText());
 
