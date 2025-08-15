@@ -1,9 +1,6 @@
 package jubayer.hossen.jobrecruitingagency.NonUsers;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
+import java.io.*;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -107,11 +104,11 @@ public class LoginController
             }
 
         }
-        catch (java.io.FileNotFoundException e) {
+        catch (FileNotFoundException e) {
             messageLabel.setText("No user data found! Please create an account first.");
             messageLabel.setStyle("-fx-text-fill: red;");
         }
-        catch (java.io.IOException e) {
+        catch (IOException e) {
             messageLabel.setText("Error occurred during login. Please try again!");
             messageLabel.setStyle("-fx-text-fill: red;");
         }

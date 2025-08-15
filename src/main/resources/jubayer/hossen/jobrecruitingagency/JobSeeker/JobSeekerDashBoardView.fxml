@@ -18,7 +18,7 @@
    <children>
       <SplitMenuButton fx:id="profileSplitMenuButton" alignment="CENTER" contentDisplay="CENTER" layoutX="636.0" layoutY="16.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0">
         <items>
-          <MenuItem mnemonicParsing="false" onAction="#profileMenuButtonOnAction" text="Profile" />
+          <MenuItem mnemonicParsing="false" onAction="#profileMenuButtonOnAction" text="Update Profile" />
           <MenuItem fx:id="changePasswordMenuButton" mnemonicParsing="false" onAction="#changePasswordMenuButtonOnAction" text="Change Password" />
             <MenuItem mnemonicParsing="false" onAction="#signOutMenuButtonOnAction" text="Sign Out" />
         </items>
@@ -44,24 +44,24 @@
          <center>
             <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
               <tabs>
-                <Tab fx:id="profileTab" onSelectionChanged="#profileTabOnSelectionChanged" text="Profile">
+                <Tab fx:id="profileTab" text="Profile">
                      <content>
                         <AnchorPane fx:id="profileTabAnchorPane" />
                      </content></Tab>
-                  <Tab fx:id="profileTab1" onSelectionChanged="#profileTabOnSelectionChanged" text="My Applications">
+                  <Tab fx:id="profileTab1" text="My Applications">
                      <content>
                         <AnchorPane fx:id="myApplicationsTabAnchorPane" prefHeight="200.0" prefWidth="200.0" />
                      </content>
                   </Tab>
-                <Tab fx:id="applicationTab" onSelectionChanged="#applicationTabOnSelectionChanged" text="Application status">
+                <Tab fx:id="applicationTab" text="Application status">
                      <content>
                         <AnchorPane fx:id="applicationStatusTabAnchorPane" prefHeight="200.0" prefWidth="200.0" />
                      </content></Tab>
-                <Tab fx:id="jobOffersTab" onSelectionChanged="#jobOffersTabOnSelectionChanged" text="Job offers">
+                <Tab fx:id="jobOffersTab" text="Job offers">
                      <content>
                         <AnchorPane fx:id="jobOffersTabAnchorPane" prefHeight="200.0" prefWidth="200.0" />
                      </content></Tab>
-                <Tab fx:id="interviewSlotsTab" onSelectionChanged="#interviewSlotsTabOnSelectionChanged" text="Interview slots">
+                <Tab fx:id="interviewSlotsTab" text="Interview slots">
                      <content>
                         <AnchorPane fx:id="interviewSlotsTabAnchorPane" prefHeight="200.0" prefWidth="200.0" />
                      </content></Tab>

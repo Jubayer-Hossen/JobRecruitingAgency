@@ -2,7 +2,9 @@ package jubayer.hossen.jobrecruitingagency.JobSeeker.ModelClasses;
 
 import jubayer.hossen.jobrecruitingagency.BusinessDevelopmentExecutive.ModelClasses.Company;
 
-public class Application {
+import java.io.Serializable;
+
+public class Application implements Serializable {
     private String applicationID;
     private JobSeeker jobSeeker;
     private Company company;

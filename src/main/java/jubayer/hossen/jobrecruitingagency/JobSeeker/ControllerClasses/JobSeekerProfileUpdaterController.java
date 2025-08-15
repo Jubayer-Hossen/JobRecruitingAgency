@@ -114,6 +114,9 @@ public class JobSeekerProfileUpdaterController {
 
     public void setCurrentJobSeeker(JobSeeker jobSeeker) {
         this.currentJobSeeker = jobSeeker;
+
+        NameTextField.setText(currentJobSeeker.getName());
+        emailTextField.setText(currentJobSeeker.getEmail());
     }
 
     private JobSeeker getJobSeeker() {

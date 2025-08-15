@@ -49,36 +49,6 @@ public class JobSeekerDashBoardController
 
     @javafx.fxml.FXML
     public void initialize() {
-        try {
-            FXMLLoader profileLoader = new FXMLLoader(MainApplication.class.getResource("JobSeeker/JobSeekerProfileView.fxml"));
-            AnchorPane profileContent = profileLoader.load();
-            profileTabAnchorPane.getChildren().setAll(profileContent);
-
-            FXMLLoader myApplicationsLoader = new FXMLLoader(MainApplication.class.getResource("JobSeeker/JobSeekerApplicationsView.fxml"));
-            AnchorPane myApplicationsContent = myApplicationsLoader.load();
-            myApplicationsTabAnchorPane.getChildren().setAll(myApplicationsContent);
-
-            FXMLLoader applicationStatusLoader = new FXMLLoader(MainApplication.class.getResource("JobSeeker/JobApplicationStatusView.fxml"));
-            AnchorPane applicationStatusContent = applicationStatusLoader.load();
-            applicationStatusTabAnchorPane.getChildren().setAll(applicationStatusContent);
-
-            FXMLLoader jobOffersLoader = new FXMLLoader(MainApplication.class.getResource("JobSeeker/OfferedJobsView.fxml"));
-            AnchorPane jobOffersContent = jobOffersLoader.load();
-            jobOffersTabAnchorPane.getChildren().setAll(jobOffersContent);
-
-            FXMLLoader interviewSlotsLoader = new FXMLLoader(MainApplication.class.getResource("JobSeeker/InterviewSlotsView.fxml"));
-            AnchorPane interviewSlotsContent = interviewSlotsLoader.load();
-            interviewSlotsTabAnchorPane.getChildren().setAll(interviewSlotsContent);
-
-        }
-        catch (Exception e){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Could not open tab views!");
-            alert.setContentText("Please try again later!");
-            alert.showAndWait();
-            return;
-        }
 
     }
 
@@ -155,25 +125,67 @@ public class JobSeekerDashBoardController
         this.currentJobSeeker = jobSeeker;
 
         profileSplitMenuButton.setText(currentJobSeeker.getName());
+
+        try {
+            FXMLLoader profileLoader = new FXMLLoader(MainApplication.class.getResource("JobSeeker/JobSeekerProfileView.fxml"));
+            AnchorPane profileContent = profileLoader.load();
+
+            Object controller = profileLoader.getController();
+            if (controller instanceof JobSeekerProfileController jobSeekerProfileController) {
+                jobSeekerProfileController.setCurrentJobSeeker(this.currentJobSeeker);
+            }
+            profileTabAnchorPane.getChildren().setAll(profileContent);
+
+            FXMLLoader myApplicationsLoader = new FXMLLoader(MainApplication.class.getResource("JobSeeker/JobSeekerApplicationsView.fxml"));
+            AnchorPane myApplicationsContent = myApplicationsLoader.load();
+
+            Object controller1 = myApplicationsLoader.getController();
+            if (controller1 instanceof JobSeekerApplicationsController jobSeekerApplicationsController) {
+                jobSeekerApplicationsController.setCurrentJobSeeker(this.currentJobSeeker);
+            }
+            myApplicationsTabAnchorPane.getChildren().setAll(myApplicationsContent);
+
+            FXMLLoader applicationStatusLoader = new FXMLLoader(MainApplication.class.getResource("JobSeeker/JobApplicationStatusView.fxml"));
+            AnchorPane applicationStatusContent = applicationStatusLoader.load();
+
+            Object controller2 = applicationStatusLoader.getController();
+            if (controller2 instanceof JobApplicationStatusController  jobApplicationStatusController) {
+                jobApplicationStatusController.setCurrentJobSeeker(this.currentJobSeeker);
+            }
+            applicationStatusTabAnchorPane.getChildren().setAll(applicationStatusContent);
+
+            FXMLLoader jobOffersLoader = new FXMLLoader(MainApplication.class.getResource("JobSeeker/OfferedJobsView.fxml"));
+            AnchorPane jobOffersContent = jobOffersLoader.load();
+
+            Object controller3 = jobOffersLoader.getController();
+            if (controller3 instanceof OfferedJobsController offeredJobsController) {
+                offeredJobsController.setCurrentJobSeeker(this.currentJobSeeker);
+            }
+            jobOffersTabAnchorPane.getChildren().setAll(jobOffersContent);
+
+            FXMLLoader interviewSlotsLoader = new FXMLLoader(MainApplication.class.getResource("JobSeeker/InterviewSlotsView.fxml"));
+            AnchorPane interviewSlotsContent = interviewSlotsLoader.load();
+
+            Object controller4 = interviewSlotsLoader.getController();
+            if (controller4 instanceof InterviewSlotsController interviewSlotsController) {
+                interviewSlotsController.setCurrentJobSeeker(this.currentJobSeeker);
+            }
+            interviewSlotsTabAnchorPane.getChildren().setAll(interviewSlotsContent);
+
+        }
+        catch (Exception e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Could not open tab views!");
+            alert.setContentText("Please try again later!");
+            alert.showAndWait();
+            return;
+        }
+
     }
 
     private JobSeeker getJobSeeker() {
         return this.currentJobSeeker;
     }
 
-    @javafx.fxml.FXML
-    public void jobOffersTabOnSelectionChanged(Event event) {
-    }
-
-    @javafx.fxml.FXML
-    public void applicationTabOnSelectionChanged(Event event) {
-    }
-
-    @javafx.fxml.FXML
-    public void profileTabOnSelectionChanged(Event event) {
-    }
-
-    @javafx.fxml.FXML
-    public void interviewSlotsTabOnSelectionChanged(Event event) {
-    }
 }

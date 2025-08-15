@@ -11,9 +11,7 @@ import jubayer.hossen.jobrecruitingagency.JobSeeker.ModelClasses.JobSeeker;
 import jubayer.hossen.jobrecruitingagency.MainApplication;
 import jubayer.hossen.jobrecruitingagency.User.User;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.Random;
 
 public class CreateNewAccountController
@@ -36,25 +34,39 @@ public class CreateNewAccountController
     private TextField confirmPasswordTextField;
     @javafx.fxml.FXML
     private Button backToLoginPageButton;
+    @javafx.fxml.FXML
+    private Label emailLabel;
 
     @javafx.fxml.FXML
     public void initialize() {
-
 
     }
 
     @javafx.fxml.FXML
     public void registerButtonOnAction(ActionEvent actionEvent) {
 
+        File file = new File("src\\main\\Files\\Users.bin");
+
         ObjectOutputStream objectOutputStream = null;
+        ObjectInputStream objectInputStream = null;
 
         String password;
         String confirmPassword;
 
         if (createPasswordPasswordField.isVisible()) {
+            if (nameTextField.getText().isEmpty() || emailTextField.getText().isEmpty() || createPasswordPasswordField.getText().isEmpty() || confirmPasswordPasswordField.getText().isEmpty() ) {
+                emailLabel.setText("Please fill in all fields!");
+                emailLabel.setStyle("-fx-text-fill: red;");
+                return;
+            }
             password = createPasswordPasswordField.getText();
         }
         else {
+            if (nameTextField.getText().isEmpty() || emailTextField.getText().isEmpty() || createPasswordTextField.getText().isEmpty() || confirmPasswordTextField.getText().isEmpty() ) {
+                emailLabel.setText("Please fill in all fields!");
+                emailLabel.setStyle("-fx-text-fill: red;");
+                return;
+            }
             password = createPasswordTextField.getText();
         }
 
@@ -63,6 +75,28 @@ public class CreateNewAccountController
         }
         else {
             confirmPassword = confirmPasswordTextField.getText();
+        }
+
+        try {
+            FileInputStream fileInputStream = new FileInputStream(file);
+            objectInputStream = new ObjectInputStream(fileInputStream);
+
+            while (true) {
+                try {
+                    User user = (User) objectInputStream.readObject();
+                    if (user.getEmail().equals(emailTextField.getText())) {
+                        emailLabel.setText("Email already exists!");
+                        emailLabel.setStyle("-fx-text-fill: red;");
+                        return;
+                    }
+                }
+                catch (EOFException e) {
+                    break;
+                }
+            }
+        }
+        catch (Exception e) {
+            System.out.println("Error while reading file!");
         }
 
         if (!password.equals(confirmPassword) ) {
@@ -74,8 +108,6 @@ public class CreateNewAccountController
         User user = new JobSeeker(generateRandomUserId(), password, nameTextField.getText(), emailTextField.getText());
 
         try {
-            File file = new File("src\\main\\Files\\Users.bin");
-
             if (file.exists()){
                 FileOutputStream fileOutputStream = new FileOutputStream(file, true);
                 objectOutputStream = new AppendableObjectOutputStream(fileOutputStream);
@@ -122,7 +154,6 @@ public class CreateNewAccountController
             alert.showAndWait();
             return;
         }
-
     }
 
     @javafx.fxml.FXML

@@ -30,7 +30,7 @@
             <Font name="Arial" size="14.0" />
          </font>
       </Text>
-      <Label layoutX="533.0" layoutY="225.0" prefHeight="17.0" prefWidth="259.0" />
+      <Label fx:id="emailLabel" layoutX="533.0" layoutY="225.0" prefHeight="17.0" prefWidth="259.0" />
       <Label fx:id="createPasswordLabel" layoutX="533.0" layoutY="275.0" prefHeight="17.0" prefWidth="259.0" />
       <Label layoutX="533.0" layoutY="325.0" prefHeight="17.0" prefWidth="259.0" />
       <CheckBox layoutX="506.0" layoutY="325.0" mnemonicParsing="false" onAction="#showPasswordsCheckBoxOnAction" text="Show Passwords" />
