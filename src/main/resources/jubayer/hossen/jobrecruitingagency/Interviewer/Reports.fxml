@@ -1,62 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.chart.*?>
 <?import javafx.scene.control.cell.*?>
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.NumberAxis?>
-<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.*?>
 
-<VBox xmlns="http://javafx.com/javafx/8.0.171"
-      xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="jubayer.hossen.jobrecruitingagency.Interviewer.Reports"
-      spacing="10"
-      style="-fx-padding: 20;">
+<VBox spacing="10" style="-fx-padding: 20;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jubayer.hossen.jobrecruitingagency.Interviewer.Reports">
 
-    <Label text="Interview Reports" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+    <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Interview Reports" />
 
-    <HBox spacing="10" alignment="CENTER_LEFT">
-        <Label text="Report Type:" style="-fx-min-width: 100px;"/>
-        <ComboBox fx:id="reportTypeComboBox" style="-fx-min-width: 150px;"/>
-        <Label text="Date Range:" style="-fx-min-width: 80px;"/>
-        <DatePicker fx:id="startDatePicker" style="-fx-min-width: 120px;"/>
-        <Label text="to"/>
-        <DatePicker fx:id="endDatePicker" style="-fx-min-width: 120px;"/>
-        <Button text="Generate Report" onAction="#handleGenerateReport"/>
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Label style="-fx-min-width: 100px;" text="Report Type:" />
+        <ComboBox fx:id="reportTypeComboBox" style="-fx-min-width: 150px;" />
+        <Label style="-fx-min-width: 80px;" text="Date Range:" />
+        <DatePicker fx:id="startDatePicker" style="-fx-min-width: 120px;" />
+        <Label text="to" />
+        <DatePicker fx:id="endDatePicker" style="-fx-min-width: 120px;" />
+        <Button onAction="#handleGenerateReport" text="Generate Report" />
     </HBox>
 
-    <BarChart fx:id="interviewStatsChart" title="Interview Statistics" style="-fx-pref-height: 300px;">
-        <xAxis>
-            <CategoryAxis label="Metrics"/>
-        </xAxis>
-        <yAxis>
-            <NumberAxis label="Count"/>
-        </yAxis>
-    </BarChart>
-
-    <TableView fx:id="detailedReportTable" style="-fx-pref-height: 200px;">
+    <TableView fx:id="detailedReportTable" prefHeight="600.0" prefWidth="800.0" style="-fx-pref-height: 200px;">
         <columns>
-            <TableColumn text="Metric" fx:id="metricColumn">
+            <TableColumn fx:id="metricColumn" text="Metric">
                 <cellValueFactory>
-                    <PropertyValueFactory property="metric"/>
+                    <PropertyValueFactory property="metric" />
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn text="Value" fx:id="valueColumn">
+            <TableColumn fx:id="valueColumn" text="Value">
                 <cellValueFactory>
-                    <PropertyValueFactory property="value"/>
+                    <PropertyValueFactory property="value" />
                 </cellValueFactory>
             </TableColumn>
         </columns>
     </TableView>
 
-    <HBox spacing="10" alignment="CENTER_RIGHT">
-        <Button text="Export to PDF"
-                style="-fx-background-color: #f44336; -fx-text-fill: white;"
-                onAction="#handleExportToPDF"/>
-        <Button text="Export to CSV"
-                style="-fx-background-color: #4CAF50; -fx-text-fill: white;"
-                onAction="#handleExportToCSV"/>
+    <HBox alignment="CENTER_RIGHT" spacing="10">
+        <Button onAction="#handleExportToPDF" style="-fx-background-color: #f44336; -fx-text-fill: white;" text="Export to PDF" />
+        <Button onAction="#handleExportToCSV" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Export to CSV" />
     </HBox>
 </VBox>

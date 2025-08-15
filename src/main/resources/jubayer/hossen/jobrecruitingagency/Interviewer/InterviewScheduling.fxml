@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox spacing="10" style="-fx-padding: 20;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jubayer.hossen.jobrecruitingagency.Interviewer.InterviewScheduleController">
+<VBox prefHeight="600.0" prefWidth="800.0" spacing="10" style="-fx-padding: 20;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jubayer.hossen.jobrecruitingagency.Interviewer.InterviewScheduleController">
     <Label style="-fx-font-size: 18; -fx-font-weight: bold;" text="Schedule New Interview" />
 
     <HBox spacing="10">

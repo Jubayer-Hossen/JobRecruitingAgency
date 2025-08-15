@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-
-<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jubayer.hossen.jobrecruitingagency.HRManager.ApplicationReviewController">
+<BorderPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jubayer.hossen.jobrecruitingagency.HRManager.ApplicationReviewController">
     <top>
         <ToolBar>
             <Button text="Back to Dashboard" />
-            <Label text="Application Review" style="-fx-font-size: 16pt; -fx-font-weight: bold;"/>
+            <Label style="-fx-font-size: 16pt; -fx-font-weight: bold;" text="Application Review" />
         </ToolBar>
     </top>
 
     <center>
-        <SplitPane dividerPositions="0.3">
+        <SplitPane dividerPositions="0.3" minHeight="800.0" prefWidth="600.0">
 
             <VBox>
                 <TableView fx:id="applicationsTable">
@@ -25,34 +24,34 @@
                     </columns>
                 </TableView>
                 <HBox spacing="10" style="-fx-padding: 10;">
-                    <ComboBox fx:id="filterCombo" promptText="Filter by Status"/>
-                    <Button text="View Details" fx:id="viewDetailsBtn"/>
+                    <ComboBox fx:id="filterCombo" promptText="Filter by Status" />
+                    <Button fx:id="viewDetailsBtn" text="View Details" />
                 </HBox>
             </VBox>
 
 
             <VBox spacing="10" style="-fx-padding: 10;">
-                <Label fx:id="candidateName" style="-fx-font-weight: bold;"/>
-                <Label fx:id="candidateEmail"/>
-                <Separator/>
+                <Label fx:id="candidateName" style="-fx-font-weight: bold;" />
+                <Label fx:id="candidateEmail" />
+                <Separator />
 
-                <Label text="Resume:"/>
+                <Label text="Resume:" />
 
 
-                <HBox spacing="10" alignment="CENTER_LEFT">
-                    <Label text="Status:"/>
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label text="Status:" />
                     <ComboBox fx:id="statusCombo">
                         <items>
 
                         </items>
                     </ComboBox>
-                    <Button text="Update Status" fx:id="updateStatusBtn"/>
+                    <Button fx:id="updateStatusBtn" text="Update Status" />
                 </HBox>
             </VBox>
         </SplitPane>
     </center>
 
     <bottom>
-            <Label fx:id="statusLabel" text="Ready"/>
+            <Label fx:id="statusLabel" text="Ready" />
     </bottom>
 </BorderPane>

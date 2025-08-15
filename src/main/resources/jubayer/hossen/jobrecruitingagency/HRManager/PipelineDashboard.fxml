@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jubayer.hossen.jobrecruitingagency.HRManager.PipelineDashboardController">
+<BorderPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jubayer.hossen.jobrecruitingagency.HRManager.PipelineDashboardController">
     <top>
         <ToolBar>
             <Button text="Dashboard" />
-            <Label text="Candidate Pipeline" style="-fx-font-size: 16pt; -fx-font-weight: bold;"/>
-            <Separator orientation="VERTICAL"/>
-            <ComboBox fx:id="jobFilter" promptText="Filter by Job"/>
-            <DatePicker fx:id="startDate" promptText="From Date"/>
-            <DatePicker fx:id="endDate" promptText="To Date"/>
-            <Button text="Apply Filters" fx:id="filterBtn"/>
+            <Label style="-fx-font-size: 16pt; -fx-font-weight: bold;" text="Candidate Pipeline" />
+            <Separator orientation="VERTICAL" />
+            <ComboBox fx:id="jobFilter" promptText="Filter by Job" />
+            <DatePicker fx:id="startDate" promptText="From Date" />
+            <DatePicker fx:id="endDate" promptText="To Date" />
+            <Button fx:id="filterBtn" text="Apply Filters" />
         </ToolBar>
     </top>
 
@@ -19,39 +20,33 @@
         <HBox spacing="20" style="-fx-padding: 15;">
             <!-- Applied Column -->
             <VBox style="-fx-background-color: #e0e0e0; -fx-padding: 10;">
-                <Label text="Applied" style="-fx-font-weight: bold;"/>
-                <ListView fx:id="appliedList" prefWidth="200" prefHeight="400"/>
+                <Label style="-fx-font-weight: bold;" text="Applied" />
+                <ListView fx:id="appliedList" prefHeight="400" prefWidth="200" />
             </VBox>
 
             <!-- Reviewed Column -->
             <VBox style="-fx-background-color: #bbdefb; -fx-padding: 10;">
-                <Label text="Reviewed" style="-fx-font-weight: bold;"/>
-                <ListView fx:id="reviewedList" prefWidth="200" prefHeight="400"/>
+                <Label style="-fx-font-weight: bold;" text="Reviewed" />
+                <ListView fx:id="reviewedList" prefHeight="400" prefWidth="200" />
             </VBox>
 
             <!-- Interview Column -->
             <VBox style="-fx-background-color: #fff9c4; -fx-padding: 10;">
-                <Label text="Interview" style="-fx-font-weight: bold;"/>
-                <ListView fx:id="interviewList" prefWidth="200" prefHeight="400"/>
+                <Label style="-fx-font-weight: bold;" text="Interview" />
+                <ListView fx:id="interviewList" prefHeight="400" prefWidth="200" />
             </VBox>
 
             <!-- Offer Column -->
             <VBox style="-fx-background-color: #c8e6c9; -fx-padding: 10;">
-                <Label text="Offer" style="-fx-font-weight: bold;"/>
-                <ListView fx:id="offerList" prefWidth="200" prefHeight="400"/>
+                <Label style="-fx-font-weight: bold;" text="Offer" />
+                <ListView fx:id="offerList" prefHeight="400" prefWidth="200" />
             </VBox>
 
             <!-- Hired Column -->
             <VBox style="-fx-background-color: #a5d6a7; -fx-padding: 10;">
-                <Label text="Hired" style="-fx-font-weight: bold;"/>
-                <ListView fx:id="hiredList" prefWidth="200" prefHeight="400"/>
+                <Label style="-fx-font-weight: bold;" text="Hired" />
+                <ListView fx:id="hiredList" prefHeight="400" prefWidth="200" />
             </VBox>
         </HBox>
     </center>
-
-    <bottom>
-        <StatusBar>
-            <Label text="Drag candidates between stages to update status"/>
-        </StatusBar>
-    </bottom>
 </BorderPane>

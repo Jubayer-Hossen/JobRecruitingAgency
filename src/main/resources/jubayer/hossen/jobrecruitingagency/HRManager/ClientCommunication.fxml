@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.collections.FXCollections?>
 
-<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jubayer.hossen.jobrecruitingagency.HRManager.ClientCommunicationController">
+<BorderPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jubayer.hossen.jobrecruitingagency.HRManager.ClientCommunicationController">
     <top>
-        <ToolBar>
+        <ToolBar prefHeight="0.0" prefWidth="0.0">
             <Button text="Dashboard" />
-            <Label text="Client Communication" style="-fx-font-size: 16pt; -fx-font-weight: bold;"/>
+            <Label style="-fx-font-size: 16pt; -fx-font-weight: bold;" text="Client Communication" />
         </ToolBar>
     </top>
 
@@ -15,7 +15,7 @@
         <SplitPane dividerPositions="0.3">
             <!-- Client List -->
             <VBox>
-                <Label text="Client Companies" style="-fx-font-weight: bold; -fx-padding: 10;"/>
+                <Label style="-fx-font-weight: bold; -fx-padding: 10;" text="Client Companies" />
                 <TableView fx:id="clientsTable">
                     <columns>
                         <TableColumn text="Company" />
@@ -27,7 +27,7 @@
             <!-- Communication Panel -->
             <VBox spacing="10" style="-fx-padding: 15;">
                 <HBox spacing="10">
-                    <Label text="Template:"/>
+                    <Label text="Template:" />
                     <ComboBox fx:id="templateCombo" prefWidth="250">
                         <items>
 <!--                            <FXCollections fx:factory="observableArrayList">-->
@@ -37,17 +37,17 @@
 <!--                            </FXCollections>-->
                         </items>
                     </ComboBox>
-                    <Button text="Load Template" fx:id="loadTemplateBtn"/>
+                    <Button fx:id="loadTemplateBtn" text="Load Template" />
                 </HBox>
 
-                <TextArea fx:id="messageArea" prefHeight="200"/>
+                <TextArea fx:id="messageArea" prefHeight="200" />
 
                 <HBox spacing="10">
-                    <Button text="Send Update" fx:id="sendBtn" style="-fx-font-weight: bold;"/>
-                    <Button text="Save Draft"/>
+                    <Button fx:id="sendBtn" style="-fx-font-weight: bold;" text="Send Update" />
+                    <Button text="Save Draft" />
                 </HBox>
 
-                <Label text="Communication History:" style="-fx-font-weight: bold;"/>
+                <Label style="-fx-font-weight: bold;" text="Communication History:" />
                 <TableView fx:id="historyTable" prefHeight="150">
                     <columns>
                         <TableColumn text="Date" />
@@ -60,6 +60,6 @@
     </center>
 
     <bottom>
-        <Label fx:id="statusLabel" text="Select a client company"/>
+        <Label fx:id="statusLabel" text="Select a client company" />
     </bottom>
 </BorderPane>
