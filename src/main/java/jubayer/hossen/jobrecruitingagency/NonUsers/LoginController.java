@@ -2,6 +2,7 @@ package jubayer.hossen.jobrecruitingagency.NonUsers;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 
 import javafx.event.ActionEvent;
@@ -171,7 +172,7 @@ public class LoginController
             newStage.setScene(scene);
             newStage.show();
 
-        } catch (java.io.IOException e) {
+        } catch (IOException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Error while loading dashboard!");

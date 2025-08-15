@@ -1,12 +1,7 @@
 package jubayer.hossen.jobrecruitingagency.JobSeeker.ControllerClasses;
 
-import javafx.scene.control.Label;
-
-public class JobSeekerProfileController
+public class JobSeekerApplicationsController
 {
-    @javafx.fxml.FXML
-    private Label fullNameLabel;
-
     @javafx.fxml.FXML
     public void initialize() {
     }}

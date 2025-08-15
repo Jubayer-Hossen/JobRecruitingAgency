@@ -4,6 +4,9 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableView;
+import javafx.stage.Stage;
+
+import jubayer.hossen.jobrecruitingagency.AppAdmin.AppAdmin;
 
 public class AppAdminDashBoardController
 {
@@ -57,6 +60,17 @@ public class AppAdminDashBoardController
 
     @javafx.fxml.FXML
     public void CreateNewUserOA(ActionEvent actionEvent) {
+
+    }
+
+    @javafx.fxml.FXML
+    public void signOutMenuButtonOnAction(ActionEvent actionEvent) {
+        if (currentAppAdmin != null) {
+            Stage stage = (Stage) alertListView.getScene().getWindow();
+            stage.close();
+
+            AppAdminDashBoardController.this.currentAppAdmin.logout();
+        }
 
     }
 }

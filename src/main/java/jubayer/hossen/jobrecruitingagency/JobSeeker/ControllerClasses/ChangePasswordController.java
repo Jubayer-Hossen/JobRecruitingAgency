@@ -47,7 +47,7 @@ public class ChangePasswordController {
         }catch (Exception e){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
-            alert.setHeaderText("Could not open change password view!");
+            alert.setHeaderText("Could not return to home page!");
             alert.setContentText("Please try again later!");
             alert.showAndWait();
             return;
@@ -82,7 +82,7 @@ public class ChangePasswordController {
 
             oldPasswordPasswordField.setVisible(true);
             newPasswordPasswordField.setVisible(true);
-            reEnterNewPasswordTextField.setVisible(true);
+            reEnterNewPasswordPasswordField.setVisible(true);
             oldPasswordTextField.setVisible(false);
             newPasswordTextField.setVisible(false);
             reEnterNewPasswordTextField.setVisible(false);
@@ -92,6 +92,10 @@ public class ChangePasswordController {
 
     public void setCurrentJobSeeker(JobSeeker jobSeeker) {
         this.currentJobSeeker = jobSeeker;
+    }
+
+    private JobSeeker getJobSeeker() {
+        return this.currentJobSeeker;
     }
 
 }

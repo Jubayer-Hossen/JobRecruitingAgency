@@ -95,13 +95,22 @@ public class CreateNewAccountController
 
             }
 
-
-            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("NonUsers/LoginPageView.fxml"));
-            Scene scene = new Scene(fxmlLoader.load());
-            Stage newStage = (Stage) registerButton.getScene().getWindow();
-            newStage.setTitle("TalentSphere");
-            newStage.setScene(scene);
-            newStage.show();
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("NonUsers/LoginPageView.fxml"));
+                Scene scene = new Scene(fxmlLoader.load());
+                Stage newStage = (Stage) registerButton.getScene().getWindow();
+                newStage.setTitle("TalentSphere");
+                newStage.setScene(scene);
+                newStage.show();
+            }
+            catch (Exception e){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Error while opening login page!");
+                alert.setContentText("Please try again later!");
+                alert.showAndWait();
+                return;
+            }
         }
         catch (Exception e){
             Alert alert = new Alert(Alert.AlertType.ERROR);

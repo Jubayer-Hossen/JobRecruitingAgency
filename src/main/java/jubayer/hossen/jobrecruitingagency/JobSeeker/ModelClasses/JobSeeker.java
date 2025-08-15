@@ -7,21 +7,19 @@ import java.util.ArrayList;
 import jubayer.hossen.jobrecruitingagency.User.User;
 
 public class JobSeeker extends User implements Serializable {
-    private final String jobSeekerID;
+    private String jobSeekerID;
     private LocalDate creationDate;
     private String phone;
     private String skills;
     private String summary;
-    private Resume resume;
 
     public JobSeeker(String userID, String password, String name,
                      String email, String jobSeekerID, LocalDate creationDate,
-                     String phone, Resume resume, String skills, String summary) {
+                     String phone, String skills, String summary) {
         super(userID, password, name, email);
         this.jobSeekerID = super.getUserID();
         this.creationDate = creationDate;
         this.phone = phone;
-        this.resume = resume;
         this.skills = skills;
         this.summary = summary;
     }
@@ -39,7 +37,6 @@ public class JobSeeker extends User implements Serializable {
                 ", phone='" + phone + '\'' +
                 ", skills='" + skills + '\'' +
                 ", summary='" + summary + '\'' +
-                ", resume=" + resume +
                 '}';
     }
 
@@ -55,20 +52,16 @@ public class JobSeeker extends User implements Serializable {
         return jobSeekerID;
     }
 
+    public void setJobSeekerID(String jobSeekerID) {
+        this.jobSeekerID = jobSeekerID;
+    }
+
     public String getPhone() {
         return phone;
     }
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    public Resume getResume() {
-        return resume;
-    }
-
-    public void setResume(Resume resume) {
-        this.resume = resume;
     }
 
     public String getSkills() {
@@ -88,9 +81,8 @@ public class JobSeeker extends User implements Serializable {
     }
 
     public ArrayList<Application> viewApplications(){
-        ArrayList<Application> applications = new ArrayList<>();
 
-        return applications;
+        return new ArrayList<>();
 
     }
 
