@@ -62,6 +62,7 @@ public class JobSeekerProfileUpdaterController {
 
     @javafx.fxml.FXML
     public void updateProfileButtonOnAction(ActionEvent actionEvent) {
+        File jobSeekersFile = new File("src\\main\\Files\\JobSeekers.bin");
         ObjectOutputStream objectOutputStream = null;
 
         String phoneNumber = phoneNumberTextField.getText();
@@ -84,22 +85,17 @@ public class JobSeekerProfileUpdaterController {
 
 
         try {
-            File file = new File("src\\main\\Files\\JobSeekers.bin");
-
-            if (file.exists()){
-                FileOutputStream fileOutputStream = new FileOutputStream(file, true);
+            if (jobSeekersFile.exists()){
+                FileOutputStream fileOutputStream = new FileOutputStream(jobSeekersFile, true);
                 objectOutputStream = new AppendableObjectOutputStream(fileOutputStream);
             }
             else {
-                FileOutputStream fileOutputStream = new FileOutputStream(file);
+                FileOutputStream fileOutputStream = new FileOutputStream(jobSeekersFile);
                 objectOutputStream = new ObjectOutputStream(fileOutputStream);
             }
 
-
             objectOutputStream.writeObject(jobSeeker);
             objectOutputStream.close();
-
-
 
             updateProfileMessageLabel.setText("Profile updated successfully!");
             updateProfileMessageLabel.setStyle("-fx-text-fill: green;");
@@ -109,7 +105,6 @@ public class JobSeekerProfileUpdaterController {
             updateProfileMessageLabel.setStyle("-fx-text-fill: red;");
             return;
         }
-
     }
 
     public void setCurrentJobSeeker(JobSeeker jobSeeker) {

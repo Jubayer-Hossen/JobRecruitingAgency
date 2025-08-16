@@ -38,7 +38,7 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <ComboBox fx:id="searchByKeywordsComboBox" layoutX="426.0" layoutY="16.0" prefHeight="30.0" prefWidth="115.0" />
+      <ComboBox fx:id="searchByKeywordsComboBox" layoutX="426.0" layoutY="16.0" prefHeight="30.0" prefWidth="115.0" promptText="Keyword" />
       <Button fx:id="searchButton" layoutX="541.0" layoutY="16.0" mnemonicParsing="false" onAction="#searchButtonOnAction" prefHeight="30.0" prefWidth="51.0" text="Search" />
       <BorderPane fx:id="jobSeekerDashBoardBoarderPane" layoutY="64.0" prefHeight="555.0" prefWidth="800.0">
          <center>

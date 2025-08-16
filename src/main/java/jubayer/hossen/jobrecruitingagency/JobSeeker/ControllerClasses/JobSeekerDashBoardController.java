@@ -1,10 +1,15 @@
 package jubayer.hossen.jobrecruitingagency.JobSeeker.ControllerClasses;
 
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.SplitMenuButton;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -49,6 +54,7 @@ public class JobSeekerDashBoardController
 
     @javafx.fxml.FXML
     public void initialize() {
+        searchByKeywordsComboBox.getItems().addAll("Information Technology", "Healthcare", "Finance", "Marketing", "Engineering");
 
     }
 
@@ -81,6 +87,31 @@ public class JobSeekerDashBoardController
 
     @javafx.fxml.FXML
     public void searchButtonOnAction(ActionEvent actionEvent) {
+        try {
+            String searchQuery = searchTextField.getText().trim();
+            String searchCategory = searchByKeywordsComboBox.getValue();
+
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("JobSeeker/SearchedJobsView.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+
+            Object controller = fxmlLoader.getController();
+            if (controller instanceof SearchedJobsController searchedJobsController) {
+                searchedJobsController.setCurrentJobSeeker(this.currentJobSeeker);
+                searchedJobsController.searchJobs(searchQuery, searchCategory);
+            }
+
+            Stage newStage = (Stage) searchButton.getScene().getWindow();
+            newStage.setTitle("TalentSphere - Search Results");
+            newStage.setScene(scene);
+            newStage.show();
+        }
+        catch (Exception e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Could not open search results!");
+            alert.setContentText("Please try again later!");
+            alert.showAndWait();
+        }
     }
 
     @javafx.fxml.FXML
